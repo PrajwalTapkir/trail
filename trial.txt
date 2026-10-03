@@ -1,88 +1,129 @@
-* { box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; margin: 0; background: #f1f5f9; color: #1f2937;font: 1.2em sans-serif; }
-    header { background: #4f46e5; color: white; padding: 10px 20px; text-align: center; }
-    #list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      padding: 20px;
-      max-width: 110px;
-      margin: 0 auto;
-    }
-    img {
-        max-width: 100%;
-      }
-      
-      .cards {
-       
-        background-color: #4d7298;
-  border: 2px solid #77a6b6;
-  border-radius: 0.5em;
-  color: white;
-  padding: 0.5em;
-  display: inline-block;
-  text-decoration: none;
-      }
-      
-      .card {
-        border: 1px solid #999999;
-        border-radius: 3px;
-      
-        display: grid;
-        grid-template-rows: max-content 50px 1fr;
-      }
-      
-      .card img {
-        object-fit: cover;
-        width: 50%;
-        height: 50%;
-      }
-      
-      .card h2 {
-        margin: 0;
-        padding: 0.5rem;
-      }
-      
-      .card .content {
-        padding: 0.5rem;
-      }
-      
-      .card footer {
-        background-color: #333333;
-        color: white;
-        padding: 0.5rem;
-      }
+ <!-- Food Cards -->
+    <div id="list">
 
-    //
-    
-  <div class="cards">
-    <article class="card">
-      <header>
-        <h2>A short heading</h2>
-      </header>
-  
-      <img
-        src="https://mdn.github.io/shared-assets/images/examples/balloons.jpg"
-        alt="Hot air balloons" />
-      <div class="content">
-        <p>
-          The idea of reaching the North Pole by means of balloons appears to have
-          been entertained many years ago.
-        </p>
-      </div>
-<header>
-        <h2>A short heading</h2>
-      </header>
-  
-      <img
-        src="https://mdn.github.io/shared-assets/images/examples/balloons.jpg"
-        alt="Hot air balloons" />
-      <div class="content">
-        <p>
-          The idea of reaching the North Pole by means of balloons appears to have
-          been entertained many years ago.
-        </p>
-      </div>
+        <div class="card">
+            <img src="food.jpg" alt="Pizza">
 
-      </article>
-      </div>
+            <div class="card-body">
+                <h2>Classic Margherita Pizza</h2>
+                <p>Italian</p>
+                <p>₹199</p>
+                <button>Order Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="food.jpg" alt="Vegetarian Stir-Fry">
+
+            <div class="card-body">
+                <h2>Vegetarian Stir-Fry</h2>
+                <p>Asian</p>
+                <p>₹149</p>
+                <button>Order Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="food.jpg" alt="Chocolate Chip Cookies">
+
+            <div class="card-body">
+                <h2>Chocolate Chip Cookies</h2>
+                <p>Dessert</p>
+                <p>₹99</p>
+                <button>Order Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="food.jpg" alt="Chicken Alfredo Pasta">
+
+            <div class="card-body">
+                <h2>Chicken Alfredo Pasta</h2>
+                <p>Italian</p>
+                <p>₹249</p>
+                <button>Order Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="food.jpg" alt="Chicken Biryani">
+
+            <div class="card-body">
+                <h2>Chicken Biryani</h2>
+                <p>Indian</p>
+                <p>₹220</p>
+                <button>Order Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="food.jpg" alt="Butter Chicken">
+
+            <div class="card-body">
+                <h2>Butter Chicken</h2>
+                <p>Indian</p>
+                <p>₹280</p>
+                <button>Order Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="food.jpg" alt="Masala Dosa">
+
+            <div class="card-body">
+                <h2>South Indian Masala Dosa</h2>
+                <p>South Indian</p>
+                <p>₹120</p>
+                <button>Order Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="food.jpg" alt="Japanese Ramen">
+
+            <div class="card-body">
+                <h2>Japanese Ramen Soup</h2>
+                <p>Japanese</p>
+                <p>₹250</p>
+                <button>Order Now</button>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    async function loadData() {
+
+    const response = await fetch("https://dummyjson.com/recipes");
+
+    const data = await response.json();
+
+    const list = document.getElementById("list");
+
+    list.innerHTML = data.recipes.map(function(recipe) {
+
+        return `
+            <div class="card">
+
+                <img src="${recipe.image}" alt="${recipe.name}">
+
+                <div class="card-body">
+
+                    <h2>${recipe.name}</h2>
+
+                    <p>${recipe.cuisine}</p>
+
+                    <p>⭐ ${recipe.rating}</p>
+
+                    <button>Order Now</button>
+
+                </div>
+
+            </div>
+        `;
+
+    }).join("");
+}
+
+loadData();

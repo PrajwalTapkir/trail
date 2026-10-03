@@ -53,6 +53,17 @@ header p {
     color: #4f46e5;
 }
 
+#search {
+    display: block;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 10px 14px;
+    font-size: 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+  }
+
 /* Food cards container */
 #list {
     display: grid;
