@@ -1,0 +1,88 @@
+* { box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; margin: 0; background: #f1f5f9; color: #1f2937;font: 1.2em sans-serif; }
+    header { background: #4f46e5; color: white; padding: 10px 20px; text-align: center; }
+    #list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      padding: 20px;
+      max-width: 110px;
+      margin: 0 auto;
+    }
+    img {
+        max-width: 100%;
+      }
+      
+      .cards {
+       
+        background-color: #4d7298;
+  border: 2px solid #77a6b6;
+  border-radius: 0.5em;
+  color: white;
+  padding: 0.5em;
+  display: inline-block;
+  text-decoration: none;
+      }
+      
+      .card {
+        border: 1px solid #999999;
+        border-radius: 3px;
+      
+        display: grid;
+        grid-template-rows: max-content 50px 1fr;
+      }
+      
+      .card img {
+        object-fit: cover;
+        width: 50%;
+        height: 50%;
+      }
+      
+      .card h2 {
+        margin: 0;
+        padding: 0.5rem;
+      }
+      
+      .card .content {
+        padding: 0.5rem;
+      }
+      
+      .card footer {
+        background-color: #333333;
+        color: white;
+        padding: 0.5rem;
+      }
+
+    //
+    
+  <div class="cards">
+    <article class="card">
+      <header>
+        <h2>A short heading</h2>
+      </header>
+  
+      <img
+        src="https://mdn.github.io/shared-assets/images/examples/balloons.jpg"
+        alt="Hot air balloons" />
+      <div class="content">
+        <p>
+          The idea of reaching the North Pole by means of balloons appears to have
+          been entertained many years ago.
+        </p>
+      </div>
+<header>
+        <h2>A short heading</h2>
+      </header>
+  
+      <img
+        src="https://mdn.github.io/shared-assets/images/examples/balloons.jpg"
+        alt="Hot air balloons" />
+      <div class="content">
+        <p>
+          The idea of reaching the North Pole by means of balloons appears to have
+          been entertained many years ago.
+        </p>
+      </div>
+
+      </article>
+      </div>
